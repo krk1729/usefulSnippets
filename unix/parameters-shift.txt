@@ -1,0 +1,37 @@
+Set This string contains some letters and words arranged to give a meaningful sentence. 
+This is what I believe. 
+
+echo "Shifting explained!"
+
+echo $1 $2 $3 $4 $5 $6 $7 $8 $9
+
+shift 9
+
+echo $1 $2 $3 $4 $5 $6 $7 $8 $9
+
+shift 2
+
+echo $1 $2 $3 $4 $5 $6 $7 $8 $9
+
+#------------
+echo "Parsing the parameters..."
+while getopts :s:h:u:p:i:c:d: op;
+do
+case ${op} in
+"s") export SUGAR_COOKIE="${OPTARG}";	#database name
+;;
+"h") export DB_HOST="${OPTARG}";	#host name
+;;
+"u") export DB_USER_NAME="${OPTARG}";	#db user name
+;;
+"p") export DB_PASSWORD="${OPTARG}";	#db password
+;;
+"i") export CLIENT_ID="${OPTARG}";	#client id
+;;
+"c") export CLIENT_CODE="${OPTARG}";	#code
+;;
+"d") export DATA_DB="${OPTARG}";	#data db name
+;;
+*) echo "Invalid usage of arguments... use s:h:u:p:i:c:d";
+   exit 1;
+;;
